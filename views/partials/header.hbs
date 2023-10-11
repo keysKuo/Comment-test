@@ -1,0 +1,130 @@
+<header id="page-header" class="sticky">
+
+    <div class="header-body">
+
+        <div class="header-body--content">
+            <div class="header-logo">
+                <a href="/"><img class="weblogo" src="/img/weblogo.png" alt=""></a>
+                <button id="navBtn1" class=" navbar-btn">
+                    <i class="fas fa-list"></i>
+                </button>
+                <ul id="left-sidebar" class="header-sidebar">
+                    <li class="sidebar-item item-first">
+                        <button id="close-btn1" class="navbar-btn">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="/account/login">Tải khoản</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="/shopping-cart">Giỏ hàng</a>
+                    </li>
+                </ul>
+                
+                <button id="navBtn2" class=" navbar-btn">
+                    <i class="fas fa-list"></i>
+                </button>
+                <ul id="right-sidebar" class="header-sidebar">
+                    <li class="sidebar-item item-first">
+                        <button id="close-btn2" class="navbar-btn">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="/">Home</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="/collections/meal-replacement">Meal Replacement</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="/collections/whey-protein">Whey Protein</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="/collections/hydrolyzed-whey-protein">Hydrolyzed Whey Protein</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="/collections/casein-protein">Casein Protein</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="/collections/vegan-protein">Vegan Protein</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="/contact">Contact</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="/support">Support</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="header-right-corner">
+                <span class="header-hotline">
+                    <span style="color: crimson"><i class="fas fa-phone"></i> Hotline: 0767 916 592</span>
+                </span>
+
+                <ul class="header-body-list">
+                    <li style="cursor: pointer;" onclick='window.location.href="/account/login"'
+                        class="header-body-item px-2">
+                        <i class="fas fa-user"></i>
+                        Tài khoản
+                    </li>
+                    <li style="cursor: pointer;" onclick='window.location.href="/shopping-cart"'
+                        class="header-body-item px-2">
+                        <i class="fas fa-shopping-cart"></i>
+                        Giỏ hàng
+                    </li>
+                </ul>
+            </div>
+            <nav class="header-navbar">
+                <div class="container">
+                    <ul class="navbar-list">
+                        <li id="home" onclick='window.location.href="/"' class="navbar-item current smooth"><a
+                                href="/">Home</a>
+                            
+                        </li>
+                        <li id="contact" class="navbar-item">
+
+                            <a href="/collections/meal-replacement">Meal Replacement</a>
+                        </li>
+
+                        <li id="collections" class="navbar-item">
+                            <a href="#">Whey Protein <i class="fas fa-angle-down"></i></a>
+                            <ul class="navbar-menu">
+                                <li class="navbar-menu-item smooth">
+                                    <a href="/collections/whey-protein">Protein</a>
+
+                                </li>
+                                <li class="navbar-menu-item smooth">
+                                    <a href="/collections/hydrolyzed-whey-protein">Hydrolyzed Protein</a>
+
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li id="" class="navbar-item">
+                            <a href="/collections/vegan-protein">Vegan Protein</a>
+                        </li>
+                        <li id="" class="navbar-item">
+                            <a href="/collections/casein-protein">Casein Protein</a>
+                        </li>
+            
+
+
+                        <li id="contact" class="navbar-item">
+                            <a href="/contact">Contact</a>
+                        </li>
+                        <li id="contact" class="navbar-item">
+                            <a href="/support">Support</a>
+                        </li>
+
+                        {{!-- <li id="service" class="navbar-item"><a href="/service">Dịch vụ</a></li> --}}
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+    </div>
+
+</header>

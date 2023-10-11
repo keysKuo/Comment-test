@@ -1,0 +1,23 @@
+
+POST http://localhost:3000/add_child_comment
+content-type: application/json
+
+{
+    "content": "Đây là comment con 2",
+    "user_id": "user001",
+    "parent_id": "6526b37022bcea4b29df83e5"
+}
+
+###
+
+POST http://localhost:3000/create_comment
+content-type: application/json
+
+{
+    "content": "Đây là comment cha",
+    "user_id": "user001"
+}
+
+###
+
+GET http://localhost:3000/get_comment/user001

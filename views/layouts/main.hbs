@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="icon" type="image/x-icon" href="/img/favicon.png">
+  {{!-- Bootstrap 5 --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  {{!-- Font Awesome --}}
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+  <title>Thực phẩm chức năng JK</title>
+  <script src="/javascript/slider.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" type="text/css" href="/slick/slick.css" />
+
+  <link rel="stylesheet" type="text/css" href="/slick/slick-theme.css" />
+  {{!-- DataTable --}}
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+  <script type="text/javascript" charset="utf8"
+    src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+  {{!--
+  <script src="/javascript/pagination.js"></script> --}}
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+  <!-- MDB -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v15.0" nonce="vpKr5BE1"></script>
+  {{> header}}
+  <div id="alertAddToCart" style="z-index: 1000" class="sticky-2">
+  </div>
+  {{{body}}}
+  
+  <div class="modal fade" id="staticBackdrop" data-mdb-backdrop="static" data-mdb-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <form method="post" action="/mail">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Đăng ký nhận tin</h5>
+            <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <!-- 2 column grid layout with text inputs for the first and last names -->
+            <div class="row mb-4">
+              <div class="col">
+                <div class="form-outline">
+                  <input name="fullname" type="text" id="form3Example1" required="" class="form-control" />
+                  <label class="form-label" for="form3Example1">Họ và tên</label>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-outline">
+                  <input name="phone" type="phone" id="form3Example2" required="" class="form-control" />
+                  <label class="form-label" for="form3Example2">Số điện thoại</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input name="email" type="email" id="form3Example3" required="Vui lòng nhập" class="form-control" />
+              <label class="form-label" for="form3Example3">Email</label>
+            </div>
+
+            <!-- Address input -->
+            <div class="form-outline mb-4">
+              <input name="address" type="text" id="form3Example4" class="form-control" />
+              <label class="form-label" for="form3Example4">Địa chỉ</label>
+            </div>
+
+            <!-- Note input -->
+            <div class="form-outline mb-4">
+              <textarea name="note" class="form-control" id="textAreaExample" rows="4"></textarea>
+              <label class="form-label" for="textAreaExample">Ghi chú</label>
+            </div>
+            <!-- Submit button -->
+            {{!-- <button type="submit" class="btn btn-primary btn-block mb-4">Đăng ký</button> --}}
+
+            <!-- Register buttons -->
+            <div class="text-center">
+              <p>Liên hệ với chúng tôi:</p>
+              <a target="_blank" href="https://www.facebook.com/haisanco5saigon/" class="btn text-white"
+                style="background-color: #3b5998;" role="button">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+
+              <a class="btn text-white" style="background-color: #ed302f;" target="_blank"
+                href="https://www.youtube.com/channel/UCr8XTth3Y8QbnAMslgn5gXQ" role="button">
+                <i class="fab fa-youtube"></i>
+              </a>
+
+              <a class="btn text-white" style="background-color: #25d366;" href="tel:090 231 53 18" role="button">
+                <i class="fas fa-phone"></i>
+              </a>
+
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-info btn-rounded w-100">Đăng ký</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="social_fixed">
+    <a class="cart smooth" href="/shopping-cart" data-cart="0"></a>
+  </div>
+
+
+<div class="hotline-hero hero-btn" style="background-color: #4fd3c4 !important;position: fixed; bottom: 70px; left: 80px;">                    <a href="tel:0767916592" class="btn">                        <img src="https://web.cmbliss.com/webtools/hotline/images/icon-call.png" alt="Gọi điện thoại">                    <span class="hotline-hero-text dial">0767 916 592</span></a>                    <span class="particles-circle"></span>                    <span class="particles-circle"></span>                    <span class="particles-circle"></span>                    <span class="particles-circle"></span>                    <span class="particles-circle"></span>                    <span class="particles-circle"></span>                </div>
+  
+
+
+
+  {{!-- {{> footer}} --}}
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+
+
+
+
+
+
+  <script src='https://cdn.jsdelivr.net/gh/vietblogdao/js/districts.min.js'></script>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-zoom/1.6.1/jquery.zoom.min.js"
+    integrity="sha512-xhvWWTTHpLC+d+TEOSX2N0V4Se1989D03qp9ByRsiQsYcdKmQhQ8fsSTX3KLlzs0jF4dPmq0nIzvEc3jdYqKkw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
+  <script type="text/javascript" src="/slick/slick.min.js"></script>
+  <script src="/javascript/main.js"></script>
+
+  <!-- MDB -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $(window).on('load', function () {
+        if ($(window).width() > 600) {
+          setTimeout(function () {
+            $('#staticBackdrop').modal('show');
+          }, 180000)
+        }
+      });
+
+      {{!-- if (localStorage.getItem('shopping-cart') != null) {
+        $('#count-cart').text(count);
+
+      } --}}
+      $(this).addClass('added');
+    })
+  </script>
+</body>
+
+</html>
