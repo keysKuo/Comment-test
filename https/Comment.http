@@ -3,9 +3,9 @@ POST http://localhost:3000/add_child_comment
 content-type: application/json
 
 {
-    "content": "Đây là comment con 2",
-    "user_id": "user001",
-    "parent_id": "6526b37022bcea4b29df83e5"
+    "content": "cảm ơn bạn",
+    "user_id": "65294d5a16a1005db013b9b7",
+    "parent_id": "65294d7f16a1005db013b9bb"
 }
 
 ###
@@ -14,10 +14,51 @@ POST http://localhost:3000/create_comment
 content-type: application/json
 
 {
-    "content": "Đây là comment cha",
-    "user_id": "user001"
+    "content": "cảm ơn bạn",
+    "user_id": "65294d5a16a1005db013b9b7",
+    "post_id": "65294d6916a1005db013b9b9"
 }
 
 ###
 
-GET http://localhost:3000/get_comment/user001
+GET http://localhost:3000/get_comment/65294d6916a1005db013b9b9
+
+
+###
+
+POST http://localhost:3000/bank
+content-type: application/json
+
+{
+    "P": 1200000000,
+    "r": 0.06,
+    "n": 12,
+    "t": 3
+}
+
+### 
+
+POST http://localhost:3000/register
+content-type: application/json
+
+{
+    "firstname": "Mạnh",
+    "lastname": "Lê",
+    "email": "manhle@gmail.com",
+    "password": "123123",
+    "confirm_password": "123123"
+}
+
+### 
+POST http://localhost:3000/create_post
+content-type: application/json
+
+{
+    "author": "65294d5a16a1005db013b9b7",
+    "content": "Đây là nội dung bài viết"
+}
+
+### 
+
+// Query bài viết -> comments
+// Query comments -> bài viết

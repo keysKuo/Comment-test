@@ -10,4 +10,4 @@ const Account = new Schema({
     timestamps: true // created_at, updated_at
 })
 
-module.exports = mongoose.model('Quy', Account);
+module.exports = mongoose.model('Account', Account);

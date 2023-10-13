@@ -12,6 +12,7 @@ const { create_comment, add_child_comment, get_comments } = require('./apis/Comm
 database.connect();
 
 const Account = require('./models/Account');
+const Post = require('./models/Post');
 
 const PORT = 3000;
 
@@ -91,9 +92,9 @@ app.post('/register', async (req, res) => {
 
 // Create a new Comment
 app.post('/create_comment', async (req, res) => {
-    const { content, user_id } = req.body;
+    const { content, user_id, post_id } = req.body;
 
-    let myComment = await create_comment(content, user_id);
+    let myComment = await create_comment(content, user_id, post_id);
     return res.json(myComment);
 
 })
@@ -105,14 +106,29 @@ app.post('/create_comment', async (req, res) => {
     return res.json(myChildComment);
  })
 
-app.get('/get_comment/:user_id', async (req, res) => {
-    const { user_id } = req.params;
+app.get('/get_comment/:post_id', async (req, res) => {
+    const { post_id } = req.params;
 
-    let myComments = await get_comments(user_id);
+    let myComments = await get_comments(post_id);
     return res.json(myComments);
 })
 
+// A = P * ((1 + r/n)^(nt) - 1) * (n/r)
+app.post('/bank', (req, res, next) => {
+    const { P , r, n , t } = req.body;
+    return res.json(P * (Math.pow((1 + r/n),(n*t)) - 1) * (n/r));
+})
 
+app.post('/create_post', async (req, res, next) => {
+    const { author, content } = req.body;
+
+    let myPost = await new Post({
+        author: author,
+        content: content
+    }).save();
+
+    return res.json(myPost);
+} )
 
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
